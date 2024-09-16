@@ -18,6 +18,10 @@ public class FestivoServicio {
 
     public String validarFechaEsFestivo(int dia, int mes) {
         Optional<Festivo> festivo = festivoRepositorio.findByDiaAndMes(dia, mes);
-        return festivo.isPresent() ? "Es Festivo: " + festivo.get().getNombre() : "No es Festivo";
+        if (festivo.isPresent()) {
+            return("Es Festivo ");
+        } else {
+            return("No es Festivo ");
+        }
     }
 }

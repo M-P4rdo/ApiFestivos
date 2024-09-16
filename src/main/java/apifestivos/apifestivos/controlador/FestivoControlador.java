@@ -4,7 +4,7 @@ import apifestivos.apifestivos.aplicacion.FestivoServicio;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/festivos")
+@RequestMapping("/api/festivos")
 public class FestivoControlador {
 
     private final FestivoServicio festivoServicio;

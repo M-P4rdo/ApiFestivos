@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "festivos")
+@Table(name = "festivo")
 public class Festivo {
     
     @Id
@@ -19,15 +19,15 @@ public class Festivo {
     @GenericGenerator(name = "secuencia_festivo", strategy = "increment")
     @Column(name = "id")
     private int id;
+
+    @Column(name = "nombre")
+    private String nombre;
     
     @Column(name = "dia")
     private int dia;
 
     @Column(name = "mes")
     private int mes;
-
-    @Column(name = "nombre")
-    private String nombre;
 
     @Column(name = "diaspascua")
     private int diasPascua;
