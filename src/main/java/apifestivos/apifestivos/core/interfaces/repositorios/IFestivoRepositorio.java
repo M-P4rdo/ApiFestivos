@@ -9,11 +9,8 @@ import org.springframework.stereotype.Repository;
 import apifestivos.apifestivos.dominio.Festivo;
 
 @Repository
-public interface IFestivoRepositorio extends JpaRepository<Festivo, Long>{
+public interface IFestivoRepositorio extends JpaRepository<Festivo, Integer>{
 
     @Query("SELECT f FROM Festivo f WHERE f.dia = :dia AND f.mes = :mes")
     Optional<Festivo> findByDiaAndMes(@Param("dia") int dia, @Param("mes") int mes);
 }
-
-
-//http://localhost:8081/api/festivos/validar?dia=12&mes=05
