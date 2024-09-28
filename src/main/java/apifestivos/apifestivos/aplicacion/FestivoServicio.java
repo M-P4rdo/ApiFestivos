@@ -17,7 +17,6 @@ public class FestivoServicio {
     }
 
     public String validarFechaEsFestivo(int dia, int mes, int año) {
-        Optional<Festivo> festivo = festivoRepositorio.findByDiaAndMes(dia, mes);
 
         // Validar mes
         if (mes < 1 || mes > 12) {
@@ -27,6 +26,7 @@ public class FestivoServicio {
             return "Fecha incorrecta: dia invalido para el mes";
         }
         else {
+            Optional<Festivo> festivo = festivoRepositorio.findByDiaAndMes(dia, mes);
             if (festivo.isPresent()) {
                 return("Es Festivo ");
             } else {
