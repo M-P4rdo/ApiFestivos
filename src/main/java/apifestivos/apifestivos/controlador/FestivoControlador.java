@@ -5,6 +5,8 @@ import apifestivos.apifestivos.dominio.Festivo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -24,8 +26,8 @@ public class FestivoControlador {
     }
 
     @RequestMapping(value="/pascua/{año}", method=RequestMethod.GET)
-    public String verificarPascua(@PathVariable int año) {
-        return festivoServicio.validarFechaPascua(año);
+    public LocalDate verificarPascua(@PathVariable int año) {
+        return festivoServicio.calcularFechaPascua(año);
     }
 
     @RequestMapping(value="/listar", method=RequestMethod.GET)
