@@ -1,14 +1,16 @@
 package apifestivos.apifestivos.aplicacion;
 
 import apifestivos.apifestivos.core.interfaces.repositorios.IFestivoRepositorio;
+import apifestivos.apifestivos.core.interfaces.servicios.IFestivoServicio;
 import apifestivos.apifestivos.dominio.Festivo;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
-public class FestivoServicio {
+public class FestivoServicio implements IFestivoServicio{
 
     private final IFestivoRepositorio festivoRepositorio;
 
@@ -47,6 +49,10 @@ public class FestivoServicio {
     
     private boolean esBisiesto(int año) {
         return (año % 4 == 0 && año % 100 != 0) || (año % 400 == 0);
+    }
+
+    public List<Festivo> listarFestivos(){
+        return festivoRepositorio.findAll();
     }
 
     public String validarFechaPascua(int año){
