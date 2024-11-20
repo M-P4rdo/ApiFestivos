@@ -30,9 +30,9 @@ public class FestivoControlador {
         return festivoServicio.calcularFechaPascua(año);
     }
 
-    @RequestMapping(value="/listar", method=RequestMethod.GET)
-    public List<Festivo> listarFestivos() {
-        return festivoServicio.listarFestivos();
+    @RequestMapping(value="/listar/{año}", method=RequestMethod.GET)
+    public List<Festivo> listarFestivos(@PathVariable int año) {
+        return festivoServicio.listarFestivos(año);
     }
 }
 

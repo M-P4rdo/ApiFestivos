@@ -8,6 +8,7 @@ import apifestivos.apifestivos.dominio.Tipo;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,9 +33,7 @@ public class FestivoServicio implements IFestivoServicio{
             if (festivo.isPresent()) {
                 Festivo festivoEncontrado = festivo.get();
                 LocalDate fechaReal = calcularFechaFestivo(festivoEncontrado, año);
-                
-                return "Es Festivo: " + festivoEncontrado.getNombre()+ " " + fechaReal;
-                
+                    return "Es Festivo: " + festivoEncontrado.getNombre()+ " " + fechaReal;
             }
             return "No es Festivo ";
         }
@@ -106,8 +105,15 @@ public class FestivoServicio implements IFestivoServicio{
  
 //---------------------------------------------------------------------------------------------------
 
-    public List<Festivo> listarFestivos(){
-        return festivoRepositorio.findAll();
+    public List<Festivo> listarFestivos(int año){
+        List<Festivo> festivosReales = new ArrayList<Festivo>();
+        festivosReales = festivoRepositorio.findAll();
+        for (Festivo festivo : festivosReales) {
+            LocalDate fecha = calcularFechaFestivo(festivo, año);
+            festivo.setDia(fecha.getDayOfMonth());
+            festivo.setMes(fecha.getMonthValue());
+        }
+        return festivosReales;
     }
 
 }

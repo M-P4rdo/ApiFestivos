@@ -6,7 +6,7 @@ import apifestivos.apifestivos.dominio.Festivo;
 
 public interface IFestivoServicio {
 
-    public List<Festivo> listarFestivos();
+    public List<Festivo> listarFestivos(int año);
 
     public String validarFechaEsFestivo(int dia, int mes, int año);
 
