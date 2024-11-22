@@ -2,7 +2,7 @@
   
 **Verificar Festivos:** http://localhost:8081/api/festivos/validar/12/05/2024  
 **Verificar Pascua:** http://localhost:8081/api/festivos/pascua/2025  
-**Kistar festivos segun el año:** http://localhost:8081/api/festivos/listar/2023  
+**Listar festivos segun el año:** http://localhost:8081/api/festivos/listar/2023  
   
   
 **Pruebas de Seguridad:** http://localhost:8081/api/usuarios/login/M.Pardo/p123  
